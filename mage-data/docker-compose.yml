@@ -1,0 +1,17 @@
+version: '3'
+services:
+  magic:  # Ensure this is the intended service name, as it differs from typical naming conventions.
+    image: mageai/mageai:latest
+    command: mage start ${PROJECT_NAME}  # Ensure PROJECT_NAME is set in the environment or docker-compose file.
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PROJECT_NAME: your_project_name_here  # Replace with your actual project name.
+      MAGE_PORT: 6789  # Assuming Mage AI can use an environment variable to set its port. If not, adjust based on actual usage.
+    ports:
+      - "6789:6789"  # Maps the container's port 6789 to the host's port 6789.
+    volumes:
+      - .:/home/src/
+      - ~/Documents/secrets/personal-gcp.json:/home/src/personal-gcp.json
+    restart: on-failure:5
