@@ -19,7 +19,7 @@ with join_title_basic_rating as (
         tit_b.genres,
         tit_r.numVotes
     from {{ ref('stg_title_basics') }} as tit_b
-    join {{ ref('stg_title_ratings') }} as tit_r
+    left join {{ ref('stg_title_ratings') }} as tit_r
     on tit_b.tconst = tit_r.tconst
 ),
 -- количество фильмов по годам по определенным жанрам (граф 2) и их % от общего числа (граф 1)
