@@ -1,0 +1,130 @@
+version: 2
+
+sources:
+  - name: staging
+    database: refined-outlet-411413
+    schema: imdb_data
+
+    tables:
+      - name: name_basics
+      - name: title_basics
+      - name: title_crew
+      - name: title_episode
+      - name: title_ratings
+
+
+models:
+  - name: stg_name_basics
+    description: ""
+    columns:
+      - name: nconst
+        data_type: string
+        description: ""
+
+      - name: primaryname
+        data_type: string
+        description: ""
+
+      - name: birthyear
+        data_type: float64
+        description: ""
+
+      - name: deathyear
+        data_type: float64
+        description: ""
+
+      - name: primaryprofession
+        data_type: string
+        description: ""
+
+      - name: knownfortitles
+        data_type: string
+        description: ""
+
+  - name: stg_title_ratings
+    description: ""
+    columns:
+      - name: tconst
+        data_type: string
+        description: ""
+
+      - name: averagerating
+        data_type: float64
+        description: ""
+
+      - name: numvotes
+        data_type: int64
+        description: ""
+
+  - name: stg_title_basics
+    description: ""
+    columns:
+      - name: tconst
+        data_type: string
+        description: ""
+
+      - name: titletype
+        data_type: string
+        description: ""
+
+      - name: primarytitle
+        data_type: string
+        description: ""
+
+      - name: originaltitle
+        data_type: string
+        description: ""
+
+      - name: isadult
+        data_type: float64
+        description: ""
+
+      - name: startyear
+        data_type: float64
+        description: ""
+
+      - name: endyear
+        data_type: float64
+        description: ""
+
+      - name: runtimeminutes
+        data_type: float64
+        description: ""
+
+      - name: genres
+        data_type: string
+        description: ""
+
+  - name: stg_title_episode
+    description: ""
+    columns:
+      - name: tconst
+        data_type: string
+        description: ""
+
+      - name: parenttconst
+        data_type: string
+        description: ""
+
+      - name: seasonnumber
+        data_type: float64
+        description: ""
+
+      - name: episodenumber
+        data_type: float64
+        description: ""
+
+  - name: stg_title_crew
+    description: ""
+    columns:
+      - name: tconst
+        data_type: string
+        description: ""
+
+      - name: directors
+        data_type: string
+        description: ""
+
+      - name: writers
+        data_type: string
+        description: ""
