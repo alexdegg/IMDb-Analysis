@@ -40,8 +40,6 @@ select
     {{ isAdult_description('isAdult') }} as isAdult_description,
     startYear,
     endYear,
-    -- extract(year from startYear) as startYear,
-    -- extract(year from endYear) as endYear,
     runtimeMinutes,
     genres
 from title_basics_data
