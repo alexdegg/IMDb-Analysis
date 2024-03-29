@@ -12,12 +12,12 @@ with name_basics_data as
     cast(
         CASE
             WHEN birthYear = '\\N' then NULL
-            ELSE concat(birthYear,'-01-01')
+            ELSE concat(LPAD(birthYear, 4, '0'),'-01-01')
         END as date) as birthYear,
     cast(
         CASE
             WHEN deathYear = '\\N' then NULL
-            ELSE concat(deathYear,'-01-01')
+            ELSE concat(LPAD(deathYear, 4, '0'),'-01-01')
         END as date) as deathYear,
     CASE 
         WHEN primaryProfession = '\\N' then NULL
@@ -25,14 +25,6 @@ with name_basics_data as
     END AS primaryProfession,
     knownForTitles
   from {{ source('staging','name_basics') }}
-  where cast(CASE
-                WHEN birthYear = '\\N' then NULL
-                ELSE birthYear
-            END as integer) > 1000
-    and cast(CASE
-                WHEN deathYear = '\\N' then NULL
-                ELSE deathYear
-            END as integer) > 1000
 )
 
 select 

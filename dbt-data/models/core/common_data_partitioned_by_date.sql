@@ -4,7 +4,8 @@
       "field": "startyear",
       "data_type": "date",
       "granularity": "year"
-    }
+    },
+    cluster_by = "genres"
 )}}
 
 with

@@ -19,112 +19,137 @@ models:
     columns:
       - name: nconst
         data_type: string
-        description: ""
+        description: "alphanumeric unique identifier of the name/person"
 
       - name: primaryname
         data_type: string
-        description: ""
+        description: >
+          name by which the person is most often credited
 
       - name: birthyear
         data_type: float64
-        description: ""
+        description: >
+          in YYYY-01-01 format
 
       - name: deathyear
         data_type: float64
-        description: ""
+        description: >
+          in YYYY-01-01 format if applicable
 
       - name: primaryprofession
         data_type: string
-        description: ""
+        description: >
+          the top-3 professions of the person
 
       - name: knownfortitles
         data_type: string
-        description: ""
+        description: >
+          titles the person is known for
 
   - name: stg_title_ratings
     description: ""
     columns:
       - name: tconst
         data_type: string
-        description: ""
+        description: >
+          alphanumeric unique identifier of the title
 
       - name: averagerating
         data_type: float64
-        description: ""
+        description: >
+          weighted average of all the individual user ratings
 
       - name: numvotes
         data_type: int64
-        description: ""
+        description: >
+          number of votes the title has received
 
   - name: stg_title_basics
-    description: ""
+    description: >
+      basic info about movie and tv titles
     columns:
       - name: tconst
         data_type: string
-        description: ""
+        description: >
+          alphanumeric unique identifier of the title
 
       - name: titletype
         data_type: string
-        description: ""
+        description: >
+          the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)
 
       - name: primarytitle
         data_type: string
-        description: ""
+        description: >
+          the more popular title / the title used by the filmmakers on promotional materials at the point of release
 
       - name: originaltitle
         data_type: string
-        description: ""
+        description: >
+          original title, in the original language
 
       - name: isadult
         data_type: float64
-        description: ""
+        description: >
+          0: non-adult title; 1: adult title
 
       - name: startyear
         data_type: float64
-        description: ""
+        description: >
+          represents the release year of a title. In the case of TV Series, it is the series start year
 
       - name: endyear
         data_type: float64
-        description: ""
+        description: >
+          TV Series end year. ‘\N’ for all other title types
 
       - name: runtimeminutes
         data_type: float64
-        description: ""
+        description: >
+          primary runtime of the title, in minutes
 
       - name: genres
         data_type: string
-        description: ""
+        description: >
+          includes up to three genres associated with the title
 
   - name: stg_title_episode
     description: ""
     columns:
       - name: tconst
         data_type: string
-        description: ""
+        description: >
+          alphanumeric identifier of episode
 
       - name: parenttconst
         data_type: string
-        description: ""
+        description: >
+          alphanumeric identifier of the parent TV Series
 
       - name: seasonnumber
         data_type: float64
-        description: ""
+        description: >
+          season number the episode belongs to
 
       - name: episodenumber
         data_type: float64
-        description: ""
+        description: >
+          episode number of the tconst in the TV series
 
   - name: stg_title_crew
     description: ""
     columns:
       - name: tconst
         data_type: string
-        description: ""
+        description: >
+          alphanumeric unique identifier of the title
 
       - name: directors
         data_type: string
-        description: ""
+        description: >
+          director(s) of the given title
 
       - name: writers
         data_type: string
-        description: ""
+        description: >
+          writer(s) of the given title
