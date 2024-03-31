@@ -3,14 +3,14 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - name_data_transform
+  - upload_name_data_to_bq_python
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: Download_name_data
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -26,29 +26,12 @@ blocks:
   language: python
   name: download_title_ratings_data
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: download_title_ratings_data
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - upload_name_data_to_bq_python
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: name_data_transform
-  retry_config: null
-  status: executed
-  timeout: null
-  type: transformer
-  upstream_blocks:
-  - download_name_data
-  uuid: name_data_transform
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     data_provider: bigquery
@@ -62,13 +45,13 @@ blocks:
   language: python
   name: upload_name_data_to_bq_python
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - name_data_transform
+  - download_name_data
   uuid: upload_name_data_to_bq_python
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []
@@ -78,7 +61,7 @@ blocks:
   language: python
   name: upload_ratings_to_bq_python
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -95,59 +78,11 @@ blocks:
   language: python
   name: download_crew_data
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: download_crew_data
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - title_episode_transform
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: Download_title_episode
-  retry_config: null
-  status: executed
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: download_title_episode
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: Upload_crew_data_to_bq
-  retry_config: null
-  status: executed
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - download_crew_data
-  uuid: upload_crew_data_to_bq
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: Upload_title_episode_to_bq
-  retry_config: null
-  status: executed
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - title_episode_transform
-  uuid: upload_title_episode_to_bq
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
@@ -157,30 +92,45 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: title_episode_transform
+  name: Download_title_episode
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
-  type: transformer
-  upstream_blocks:
-  - download_title_episode
-  uuid: title_episode_transform
-- all_upstream_blocks_executed: true
+  type: data_loader
+  upstream_blocks: []
+  uuid: download_title_episode
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
-  downstream_blocks:
-  - title_basics_transform
+  downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: download_title_basics
+  name: Upload_crew_data_to_bq
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: download_title_basics
+  type: data_exporter
+  upstream_blocks:
+  - download_crew_data
+  uuid: upload_crew_data_to_bq
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Upload_title_episode_to_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - download_title_episode
+  uuid: upload_title_episode_to_bq
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
@@ -190,15 +140,14 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: title_basics_transform
+  name: download_title_basics
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
-  type: transformer
-  upstream_blocks:
-  - download_title_basics
-  uuid: title_basics_transform
-- all_upstream_blocks_executed: true
+  type: data_loader
+  upstream_blocks: []
+  uuid: download_title_basics
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []
@@ -208,11 +157,11 @@ blocks:
   language: python
   name: Upload_title_basics_to_bq
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - title_basics_transform
+  - download_title_basics
   uuid: upload_title_basics_to_bq
 cache_block_output_in_memory: false
 callbacks: []
