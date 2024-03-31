@@ -26,7 +26,7 @@ blocks:
   language: python
   name: download_title_ratings_data
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -51,7 +51,7 @@ blocks:
   upstream_blocks:
   - download_name_data
   uuid: upload_name_data_to_bq_python
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -61,7 +61,7 @@ blocks:
   language: python
   name: upload_ratings_to_bq_python
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:

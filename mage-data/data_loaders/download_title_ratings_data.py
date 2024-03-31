@@ -15,8 +15,8 @@ def load_data_from_api(*args, **kwargs):
 
     schema = {
         'tconst': str,
-        'averageRating': str,
-        'numVotes': str
+        'averageRating': float,
+        'numVotes': int
     }
     
     df = pd.read_csv(tsv_gz_content, sep='\t', dtype=schema, compression='gzip')
