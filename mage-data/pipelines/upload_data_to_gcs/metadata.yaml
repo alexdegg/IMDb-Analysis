@@ -94,7 +94,7 @@ blocks:
   language: python
   name: Download_title_episode
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -115,7 +115,7 @@ blocks:
   upstream_blocks:
   - download_crew_data
   uuid: upload_crew_data_to_bq
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -125,7 +125,7 @@ blocks:
   language: python
   name: Upload_title_episode_to_bq
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -142,12 +142,12 @@ blocks:
   language: python
   name: download_title_basics
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: download_title_basics
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -157,7 +157,7 @@ blocks:
   language: python
   name: Upload_title_basics_to_bq
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:

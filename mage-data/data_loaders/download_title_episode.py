@@ -17,7 +17,7 @@ def load_data_from_api(*args, **kwargs):
         'tconst': str,
         'parentTconst': str,
         'seasonNumber': str,
-        'pisodeNumber': str
+        'episodeNumber': str
     }
     
     df = pd.read_csv(tsv_gz_content, sep='\t', dtype=schema, compression='gzip')

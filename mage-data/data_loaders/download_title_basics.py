@@ -5,7 +5,7 @@ from io import BytesIO
 @data_loader
 def load_data_from_api(*args, **kwargs):
     
-    url = 'https://datasets.imdbws.com/title.ratings.tsv.gz'
+    url = 'https://datasets.imdbws.com/title.basics.tsv.gz'
 
     response = requests.get(url)
     response.raise_for_status()  # Check for HTTP issues
