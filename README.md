@@ -84,10 +84,6 @@ docker-compose up
 
 ## Transforming using dbt
 
-Set up a dbt account and configure your project according to the provided instructions.
-Integrate your dbt account with GitHub for seamless project management and version control.
-Execute dbt builds to process and transform the data for analysis.
-
 1. Set up a dbt account and configure your project according to the provided [instructions](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md).
 2. Integrate your dbt account with GitHub for seamless project management and version control.
 3. Execute dbt builds to process and transform the data for analysis.
