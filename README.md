@@ -2,41 +2,41 @@
 
 ## Used Technologies
 
-Tools used for this project:
+This project leverages a variety of tools and technologies:
 
-Docker - for using images;
-Mage AI - for downloading and uploading raw data to BigQuery and orchestration;
-Terraform - as Infrastructure-as-Code (IaC) tool;
-Google Compute Engine - as a virtual machine;
-Google Cloud Storage - for storage terraform files;
-Google BigQuery - for the project Data Warehouse;
-dbt - for the transformation of raw data;
-Google Looker studio - for visualizations.
+* Docker: Utilized for creating and managing containers.
+* Mage AI: Employed for downloading and uploading raw data to BigQuery, as well as for orchestration tasks.
+* Terraform: Used as an Infrastructure-as-Code (IaC) tool to automate infrastructure management.
+* Google Compute Engine: Serves as the cloud computing service for running virtual machines.
+* Google Cloud Storage: Provides storage solutions for Terraform configuration files and other project data.
+* Google BigQuery: Acts as the Data Warehouse for storing and analyzing project data.
+* dbt: Utilized for transforming raw data stored in BigQuery.
+* Google Looker Studio: Used for creating visualizations and dashboards.
 
-The project pulls data from IMDb Developer daily, upload it to BigQuery by using Mage AI, uses dbt to transform raw data from BigQuery and upload it back daily, Terraform used to upload configuration to Google Cloud Storage. Looker studio was used for visualizations
+The project automatically retrieves data daily from IMDb Developer, processes it using Mage AI, and stores it in BigQuery. Transformations on this raw data are performed with dbt before the processed data is visualized in Looker Studio.
 
 ## Problem description
 
-In nowadays there is a lot of movies, tv programms, shows e.t.c. is creating every year. And i got a question: What is the most popular genre of this shows and how people rating them? To build this project i'm using a publicly available dataset provided by [IMDb Developer](https://datasets.imdbws.com/).
-Tasks for project:
-Upload data from source to BigQuery on schedule
-Transform data in dbt to create a table with common dataset, create table for reporting, upload it to BigQuery
-Use Looker Studio for visualisation
+The entertainment industry produces an immense volume of movies, TV programs, and shows annually. This project seeks to identify the most popular genres among these productions and analyze audience ratings. The analysis is based on a publicly available dataset provided by IMDb Developer. The project encompasses the following tasks:
+
+* Scheduled data retrieval from the source to BigQuery.
+* Transformation of data in dbt to generate a common dataset and a reporting table, which are then uploaded back to BigQuery.
+* Utilization of Looker Studio for data visualization.
 
 
 ## Cloud
 
-Project created with Google Cloud Virtual Machine, uses Terraform
+The project is deployed on a Google Cloud Virtual Machine and utilizes Terraform for infrastructure management.
 
 ## Data ingestion and Workflow orchestration
 
-The project pulls data from IMDb Developer daily, upload it to BigQuery by using Mage AI python scripts.
+Data is sourced daily from IMDb Developer and uploaded to BigQuery using Mage AI's Python scripts. This setup ensures efficient data management and workflow orchestration.
 
 mage ai dag
 
 ## Data warehouse and Transformations (dbt)
 
-dbt was used to transform raw data from BigQuery and upload it back daily,
+dbt plays a crucial role in transforming the raw data stored in BigQuery, making it suitable for analysis and visualization. The transformations are performed daily to keep the dataset updated.
 
 dbt dag
 
@@ -44,72 +44,57 @@ dbt structure
 
 ## Dashboard
 
-Looker studio was used for visualizations with (2 tiles)[source]
+Visualizations are crafted in [Looker Studio](source), which helps in presenting the data analysis through interactive elements and insights.
 
 # How to reproduce
 
-Next steps will help to reproduce the project
+Follow these steps to replicate the project:
 
 ## Setting up a virtual machine
 
-The best practice to setup a virtual machine is to follow a fully completed guide from [DeZoomcamp](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=15). 
-This video includes:
-Generating SSH keys
-Creating a virtual machine on GCP
-Connecting to the VM with SSH
-Installing Anaconda (not necessary)
-Installing Docker
-Creating SSH config file
-Accessing the remote machine with VS Code and SSH remote
-Installing docker-compose
-Installing pgcli (not necessary)
-Port-forwarding with VS code: connecting to pgAdmin and Jupyter from the local computer (not necessary, but port forwarding part is useful)
-Installing Terraform (as example)
-Using sftp for putting the credentials to the remote machine
-Shutting down and removing the instance
-
-Also we need a fully setupped BigQuery on Google cloud with proper permissions.
+It is recommended to use the comprehensive guide provided by [DeZoomcamp](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=15), covering all necessary steps from generating SSH keys to setting up and connecting to a virtual machine on GCP.
 
 ## Uploading raw data to BigQuery
 
-I'm using VS Code to connect to my virtual machine.
-Mage AI used as orchestator tool that uploads the dataset to BigQuery everyday. 
-If you want to reproduce my project, then clone my repo to your machine.
+* Utilize VS Code to connect to your virtual machine.
+* Employ Mage AI as the orchestration tool for uploading datasets to BigQuery daily.
+* Follow the instructions to configure and use Mage AI effectively for data management:
 
-
-1. Navigate to mage-data and start command 
+1. Clone the repo to your machine
+2. Navigate to mage-data and start command 
 ```
 docker-compose build
 docker-compose up
 ```
-2. To config Mage AI add your .json API key from Google Cloud to mage-data/ folder
-2. After that Mage AI is up and can be connected on localhost:6789.
-3. In pipelines blocks for loading and uploading data was created
+3. To config Mage AI add your .json API key from Google Cloud to mage-data/ folder
+4. After that Mage AI is up and can be connected on localhost:6789.
+5. Run pipelines manually or create triggers to run on schedule
 
 image about pipelines
 
-4. Run pipelines manually or create triggers to run on schedule
-
 image triggers
 
-5. Open BigQuery on Google cloud and look at uploaded data
+6. Data uploaded to BigQuery
 
 BigQuery image imdb data
 
 ## Transforming using dbt
 
-1. Create dbt account, setup the project. Follow the (instructions)[https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md] to setup it properly
-2. Connect your account to github in profile settings
-3. Run dbt build
+Set up a dbt account and configure your project according to the provided instructions.
+Integrate your dbt account with GitHub for seamless project management and version control.
+Execute dbt builds to process and transform the data for analysis.
+
+1. Set up a dbt account and configure your project according to the provided (instructions)[https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md].
+2. Integrate your dbt account with GitHub for seamless project management and version control.
+3. Execute dbt builds to process and transform the data for analysis.
 4. The new dataset created in BigQuery with several view and materialized table. Common data is partitioned and clustered.
 
 imdb dbt image
 
 ## Dashboard
 
-1. Create a new report in Looker Studio
-2. Add BigQuery table (filmes_by_genre table in my project) as data source
-3. Create a tile and configure as you like
+1. Initiate a new report in Looker Studio and link the BigQuery table as a data source.
+2. Customize the visualization tiles according to the project requirements to effectively communicate the analysis results.
 
 Looker studio data source image
 
