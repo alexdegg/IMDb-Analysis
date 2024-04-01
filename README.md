@@ -72,13 +72,13 @@ docker-compose up
 ```
 3. To config Mage AI add your .json API key from Google Cloud to mage-data/ folder
 4. After that Mage AI is up and can be connected on localhost:6789.
-5. Run pipelines manually or create triggers to run on schedule
+5. Run pipelines manually to upload data immediately or create triggers to run on schedule
 
 ![MageAI pipelines](images/mage_ai_pipelines.png)
 
 ![Mage AI triggers](images/mage_ai_triggers.png)
 
-6. Uploaded raw data to BigQuery
+6. Loaded raw data created in BigQuery
 
 ![BigQuery raw imdb data](images/imdb_raw_data.png)
 
@@ -91,6 +91,10 @@ docker-compose up
 dbt deps
 dbt build
 ```
+4. Create dbt job to run daily.
+
+![Dbt_daily_job](images/dbt_daily_job.png)
+
 4. The new dataset created in BigQuery with several views and materialized table. Common data is partitioned and clustered.
 
 ![BigQuery imdb transformed data](images/imdb_dbt.png)
