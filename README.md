@@ -91,7 +91,7 @@ docker-compose up
 dbt deps
 dbt build
 ```
-4. The new dataset created in BigQuery with several view and materialized table. Common data is partitioned and clustered.
+4. The new dataset created in BigQuery with several views and materialized table. Common data is partitioned and clustered.
 
 ![BigQuery imdb transformed data](images/imdb_dbt.png)
 
@@ -105,6 +105,7 @@ Leverage Terraform for efficient data upload to Google Cloud Storage:
 terraform init
 terraform apply
 ```
+3. Check created folder in Google Cloud Storage
 This process initiates Terraform, configuring it with your project's specifics, and applies the changes, facilitating the upload of your data to Google Cloud Storage seamlessly.
 
 ## Dashboard
