@@ -87,9 +87,25 @@ Execute dbt builds to process and transform the data for analysis.
 1. Set up a dbt account and configure your project according to the provided (instructions)[https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md].
 2. Integrate your dbt account with GitHub for seamless project management and version control.
 3. Execute dbt builds to process and transform the data for analysis.
+```
+dbt deps
+dbt build
+```
 4. The new dataset created in BigQuery with several view and materialized table. Common data is partitioned and clustered.
 
 imdb dbt image
+
+## Terraform Integration
+
+Leverage Terraform for efficient data upload to Google Cloud Storage:
+
+1. Modify the main.tf file to include the correct credentials.
+2. Execute the commands below from within the project directory:
+```
+terraform init
+terraform apply
+```
+This process initiates Terraform, configuring it with your project's specifics, and applies the changes, facilitating the upload of your data to Google Cloud Storage seamlessly.
 
 ## Dashboard
 
