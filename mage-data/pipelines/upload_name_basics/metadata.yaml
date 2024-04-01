@@ -1,0 +1,61 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/download_name_data.py
+  downstream_blocks:
+  - upload_name_data_to_bq_python
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: download_name_data
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: download_name_data
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/upload_name_data_to_bq_python.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: upload_name_data_to_bq_python
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - download_name_data
+  uuid: upload_name_data_to_bq_python
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-04-01 11:35:30.971490+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: upload_name_basics
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: upload_name_basics
+variables_dir: /path/to/your/mage/data/src
+widgets: []

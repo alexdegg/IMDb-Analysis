@@ -3,22 +3,6 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - upload_name_data_to_bq_python
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: Download_name_data
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: download_name_data
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks:
   - upload_ratings_to_bq_python
   executor_config: null
   executor_type: local_python
@@ -31,26 +15,6 @@ blocks:
   type: data_loader
   upstream_blocks: []
   uuid: download_title_ratings_data
-- all_upstream_blocks_executed: false
-  color: null
-  configuration:
-    data_provider: bigquery
-    data_provider_profile: default
-    data_provider_schema: imdb_data
-    export_write_policy: append
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: upload_name_data_to_bq_python
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - download_name_data
-  uuid: upload_name_data_to_bq_python
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
@@ -131,38 +95,6 @@ blocks:
   upstream_blocks:
   - download_title_episode
   uuid: upload_title_episode_to_bq
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - upload_title_basics_to_bq
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: download_title_basics
-  retry_config: null
-  status: executed
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: download_title_basics
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: Upload_title_basics_to_bq
-  retry_config: null
-  status: executed
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - download_title_basics
-  uuid: upload_title_basics_to_bq
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
