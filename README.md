@@ -1,4 +1,4 @@
-# IMDb-Analysis
+# IMDb Genre and Ratings Analysis Project
 
 ## Used Technologies
 
@@ -32,19 +32,23 @@ The project is deployed on a Google Cloud Virtual Machine and utilizes Terraform
 
 Data is sourced daily from IMDb Developer and uploaded to BigQuery using Mage AI's Python scripts. This setup ensures efficient data management and workflow orchestration.
 
-mage ai dag
+![mage ai dag](images/mage_ai_dag.png)
 
 ## Data warehouse and Transformations (dbt)
 
 dbt plays a crucial role in transforming the raw data stored in BigQuery, making it suitable for analysis and visualization. The transformations are performed daily to keep the dataset updated.
 
-dbt dag
+![dbt dag](images/dbt_dag.png)
 
-dbt structure
+![dbt structure](images/dbt_structure.png)
 
 ## Dashboard
 
-Visualizations are crafted in [Looker Studio](source), which helps in presenting the data analysis through interactive elements and insights.
+Visualizations are crafted in [Looker Studio](https://lookerstudio.google.com/s/gZF7TQfkxcs), which helps in presenting the data analysis through interactive elements and insights.
+
+![genres pie chart](images/looker_pie_chart_tile.png)
+
+![ratings bar chart](images/looker_bar_chart_tile.png)
 
 # How to reproduce
 
@@ -70,13 +74,13 @@ docker-compose up
 4. After that Mage AI is up and can be connected on localhost:6789.
 5. Run pipelines manually or create triggers to run on schedule
 
-image about pipelines
+![MageAI pipelines](images/mage_ai_pipelines.png)
 
-image triggers
+![Mage AI triggers](images/mage_ai_triggers.png)
 
 6. Data uploaded to BigQuery
 
-BigQuery image imdb data
+![BigQuery raw imdb data](images/imdb_raw_data.png)
 
 ## Transforming using dbt
 
@@ -84,7 +88,7 @@ Set up a dbt account and configure your project according to the provided instru
 Integrate your dbt account with GitHub for seamless project management and version control.
 Execute dbt builds to process and transform the data for analysis.
 
-1. Set up a dbt account and configure your project according to the provided (instructions)[https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md].
+1. Set up a dbt account and configure your project according to the provided [instructions](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md).
 2. Integrate your dbt account with GitHub for seamless project management and version control.
 3. Execute dbt builds to process and transform the data for analysis.
 ```
@@ -93,7 +97,7 @@ dbt build
 ```
 4. The new dataset created in BigQuery with several view and materialized table. Common data is partitioned and clustered.
 
-imdb dbt image
+![BigQuery imdb transformed data](images/imdb_dbt.png)
 
 ## Terraform Integration
 
@@ -111,8 +115,3 @@ This process initiates Terraform, configuring it with your project's specifics, 
 
 1. Initiate a new report in Looker Studio and link the BigQuery table as a data source.
 2. Customize the visualization tiles according to the project requirements to effectively communicate the analysis results.
-
-Looker studio data source image
-
-
-
