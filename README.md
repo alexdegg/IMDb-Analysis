@@ -78,7 +78,7 @@ docker-compose up
 
 ![Mage AI triggers](images/mage_ai_triggers.png)
 
-6. Data uploaded to BigQuery
+6. Uploaded raw data to BigQuery
 
 ![BigQuery raw imdb data](images/imdb_raw_data.png)
 
