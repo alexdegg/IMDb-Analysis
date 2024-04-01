@@ -34,6 +34,8 @@ Data is sourced daily from IMDb Developer and uploaded to BigQuery using Mage AI
 
 ![mage ai dag](images/mage_ai_dag.png)
 
+![Mage AI triggers](images/mage_ai_triggers.png)
+
 ## Data warehouse and Transformations (dbt)
 
 dbt plays a crucial role in transforming the raw data stored in BigQuery, making it suitable for analysis and visualization. The transformations are performed daily to keep the dataset updated.
@@ -42,9 +44,11 @@ dbt plays a crucial role in transforming the raw data stored in BigQuery, making
 
 ![dbt structure](images/dbt_structure.png)
 
+![dbt_daily_update](images/dbt_daily_update.png)
+
 ## Dashboard
 
-Visualizations are crafted in [Looker Studio](https://lookerstudio.google.com/s/gZF7TQfkxcs), which helps in presenting the data analysis through interactive elements and insights.
+Visualizations are crafted in [Looker Studio](https://lookerstudio.google.com/s/nu3J2_MRPqQ), which helps in presenting the data analysis through interactive elements and insights.
 
 ![genres pie chart](images/looker_pie_chart_tile.png)
 
@@ -75,8 +79,6 @@ docker-compose up
 5. Run pipelines manually to upload data immediately or create triggers to run on schedule
 
 ![MageAI pipelines](images/mage_ai_pipelines.png)
-
-![Mage AI triggers](images/mage_ai_triggers.png)
 
 6. Loaded raw data created in BigQuery
 
