@@ -17,7 +17,7 @@ The project automatically retrieves data daily from IMDb Developer, processes it
 
 ## Problem description
 
-The entertainment industry produces an immense volume of movies, TV programs, and shows annually. This project seeks to identify the most popular genres among these productions and analyze audience ratings. The analysis is based on a publicly available dataset provided by IMDb Developer. The project encompasses the following tasks:
+The entertainment industry produces an immense volume of movies, TV programs, and shows annually. This project seeks to identify the most popular genres among these productions and analyze audience ratings. The analysis is based on a publicly available dataset provided by (IMDb Developer)[https://datasets.imdbws.com/]. The project encompasses the following tasks:
 
 * Scheduled data retrieval from the source to BigQuery.
 * Transformation of data in dbt to generate a common dataset and a reporting table, which are then uploaded back to BigQuery.
